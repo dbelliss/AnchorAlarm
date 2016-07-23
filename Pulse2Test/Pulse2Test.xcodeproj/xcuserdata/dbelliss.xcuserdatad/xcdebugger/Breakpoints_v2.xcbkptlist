@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Pulse2Test/MainTableViewController.swift"
-            timestampString = "491006427.250037"
+            timestampString = "491008724.231222"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
             landmarkName = "subscribeForNotification()"
             landmarkType = "5">
          </BreakpointContent>

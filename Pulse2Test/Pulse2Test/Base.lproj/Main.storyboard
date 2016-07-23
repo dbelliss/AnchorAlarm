@@ -13,8 +13,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <webView key="tableHeaderView" contentMode="scaleToFill" id="huE-Gk-lCu">
+                            <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                        </webView>
                         <datePicker key="tableFooterView" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" id="Mdf-dd-ZpE">
-                            <rect key="frame" x="0.0" y="381" width="600" height="44"/>
+                            <rect key="frame" x="0.0" y="425" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <date key="date" timeIntervalSinceReferenceDate="491005423.03984201">
                                 <!--2016-07-23 22:23:43 +0000-->
@@ -24,7 +29,7 @@
                             <tableViewSection headerTitle="Device Information" id="6XY-Ic-Lmc">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="nYd-Po-glX" detailTextLabel="7MI-3M-HUi" style="IBUITableViewCellStyleValue1" id="eoi-3d-lkk">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="136" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eoi-3d-lkk" id="yNE-yo-9Xg">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -48,7 +53,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="iyI-nE-nDe" detailTextLabel="v5a-nL-tOq" style="IBUITableViewCellStyleValue1" id="8nT-95-v5l">
-                                        <rect key="frame" x="0.0" y="136" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="180" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8nT-95-v5l" id="60q-Zg-CSJ">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -76,7 +81,7 @@
                             <tableViewSection headerTitle="Control Pulse2" id="1G9-RI-9ud">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="85" id="eU6-ra-KNj">
-                                        <rect key="frame" x="0.0" y="208" width="600" height="85"/>
+                                        <rect key="frame" x="0.0" y="252" width="600" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eU6-ra-KNj" id="CSj-mB-wZc">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="84.5"/>
@@ -109,7 +114,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="fKo-q2-Ysl" detailTextLabel="uyH-DZ-OnC" style="IBUITableViewCellStyleValue1" id="3br-ha-dVl">
-                                        <rect key="frame" x="0.0" y="293" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="337" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3br-ha-dVl" id="Qtc-UB-H9M">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
@@ -136,7 +141,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="hxH-So-XQA">
-                                        <rect key="frame" x="0.0" y="337" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="381" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hxH-So-XQA" id="3Uo-6c-gby">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -148,7 +153,7 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xHV-6r-i6X">
+                                                <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xHV-6r-i6X">
                                                     <rect key="frame" x="172" y="7" width="78" height="31"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="N/A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xhV-4d-ET1">
@@ -192,6 +197,7 @@
                         <outlet property="datePicker" destination="Mdf-dd-ZpE" id="zq3-xs-aMD"/>
                         <outlet property="ledBrightnessLabel" destination="hx9-gI-aHb" id="3hv-Zs-vNa"/>
                         <outlet property="ledInfoLabel" destination="uyH-DZ-OnC" id="7Yl-ib-vH1"/>
+                        <outlet property="webView" destination="huE-Gk-lCu" id="IMy-cU-Ki2"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PJK-BY-7fI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -201,6 +207,7 @@
         <!--Genre View Controller-->
         <scene sceneID="uJV-Y9-W7p">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qBQ-Zj-Q6f" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="3ha-TE-NSf" customClass="GenreViewController" customModule="Pulse2Test" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZRU-bi-Hqt"/>
@@ -213,7 +220,7 @@
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="44y-lA-0yV">
                                 <rect key="frame" x="140" y="342" width="320" height="216"/>
                             </pickerView>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AeD-dU-1ai">
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AeD-dU-1ai">
                                 <rect key="frame" x="49" y="100" width="142" height="21"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Current Genre:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g7H-Rv-99J">
@@ -244,7 +251,6 @@
                         <outlet property="label" destination="tfA-zg-sG0" id="iaT-6o-EkD"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qBQ-Zj-Q6f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1973" y="237"/>
         </scene>

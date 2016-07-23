@@ -16,6 +16,7 @@ var MainTableViewControllerShared: MainTableViewController!
 class MainTableViewController: UITableViewController {
 
 
+    @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var alarmSlider: UISwitch! //Slider to activate alarm
     @IBOutlet weak var alarmLabel: UILabel!//Label to indicate status of alarm
     
@@ -49,7 +50,8 @@ class MainTableViewController: UITableViewController {
 
         MainTableViewControllerShared = self
         
-        
+        let youtubeURL = "https://www.youtube.com/embed/Rg6GLVUnnpM?rel=0&autoplay=1"
+        webView.loadHTMLString("<iframe width=\"560\" height=\"315\" src=\"\(youtubeURL)\" frameborder=\"0\" allowfullscreen></iframe>", baseURL: nil)
         subscribeForNotification()
         HMNDeviceGeneral.connectToMasterDevice()
     }

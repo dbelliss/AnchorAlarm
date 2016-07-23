@@ -10,6 +10,7 @@ import UIKit
 
 class GenreViewController : UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
+    
     @IBOutlet weak var genre: UIPickerView!
     @IBOutlet weak var label: UILabel!
     var pickerData: [String] = [String]()
@@ -21,6 +22,7 @@ class GenreViewController : UIViewController, UIPickerViewDelegate, UIPickerView
         self.genre.dataSource = self
         // Input data into the Array:
         pickerData = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6"]
+       
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
