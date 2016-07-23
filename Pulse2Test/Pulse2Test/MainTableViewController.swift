@@ -16,6 +16,11 @@ var MainTableViewControllerShared: MainTableViewController!
 class MainTableViewController: UITableViewController {
 
 
+    @IBOutlet weak var alarmSlider: UISwitch! //Slider to activate alarm
+    @IBOutlet weak var alarmLabel: UILabel!//Label to indicate status of alarm
+    
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var genre: UIPickerView!
     @IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var deviceNameLabel: UILabel!
     @IBOutlet weak var productIDLabel: UILabel!
@@ -74,6 +79,38 @@ class MainTableViewController: UITableViewController {
         
     }
 
+    @IBAction func toggleSlider(sender: AnyObject) {
+        if (self.alarmLabel.text == "Off") {
+            self.alarmLabel.text = "On" //Turn on
+            sendNotification()
+            NSLog(self.alarmLabel.text!)
+        }//Turn on alarm
+        else {
+            self.alarmLabel.text = "Off"
+            NSLog(self.alarmLabel.text!)
+            NSLog("Alarm disarmed. How alarming.")
+            let alertController = UIAlertController(title: "Alarm canceled", message:
+                nil, preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }//Turn off alarm
+    }
+    
+    func sendNotification()
+    {
+        let localNotification = UILocalNotification()
+        localNotification.fireDate = datePicker.date
+        localNotification.alertBody = "The alarm is going off"
+        localNotification.timeZone = NSTimeZone.defaultTimeZone()
+        localNotification.applicationIconBadgeNumber = UIApplication.sharedApplication().applicationIconBadgeNumber + 1
+        // localNotification.soundName = UILocalNotificationDefaultSoundName
+        localNotification.soundName = "doorbell.m4a";
+        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+    }
+
+    
+    
     func deviceConnected(notification: NSNotification) {
         print("deviceConnected")
         
@@ -121,15 +158,15 @@ class MainTableViewController: UITableViewController {
             let devAudioSourceValue = (devInfoDict[KEY_DEVICE_INFO_AUDIO_SOURCE_VALUE]?.integerValue)!
             let devMacAddressValue = devInfoDict[KEY_DEVICE_INFO_MAC_ADDRESS_VALUE]!
 
-            deviceNameLabel.text = devName as? String
-            productIDLabel.text = "\(devProductID)"
-            moduleIDLabel.text = "\(devModelID)"
+//            deviceNameLabel.text = devName as? String
+//            productIDLabel.text = "\(devProductID)"
+//            moduleIDLabel.text = "\(devModelID)"
             batteryChargingStatusLabel.text = devBatteryIsCharging! ? "On" : "Off"
             batteryLevelLabel.text = "\(devBatteryValue)"
-            linkedDeviceCountLabel.text = "\(devLinkedDeviceCount)"
-            activeChannelLabel.text = "\(devActiveChannelValue)"
-            audioSourceLabel.text = "\(devAudioSourceValue)"
-            macAddressLabel.text = devMacAddressValue as? String
+//            linkedDeviceCountLabel.text = "\(devLinkedDeviceCount)"
+//            activeChannelLabel.text = "\(devActiveChannelValue)"
+//            audioSourceLabel.text = "\(devAudioSourceValue)"
+//            macAddressLabel.text = devMacAddressValue as? String
             
             
             print("devDeviceIndex: \(devDeviceIndex)")
@@ -191,8 +228,8 @@ class MainTableViewController: UITableViewController {
             let swVersion = (deviceInfoDict[KEY_SW_VERSION])!
             let hwVersion = deviceInfoDict[KEY_HW_VERSION]!
             
-            versionLabel.text = "SW: \(swVersion), HW: \(hwVersion)"
-            print("SW Version: \(swVersion), HW Version: \(hwVersion)")
+//            versionLabel.text = "SW: \(swVersion), HW: \(hwVersion)"
+ //           print("SW Version: \(swVersion), HW Version: \(hwVersion)")
             
         } else {
             print("Error in patternReceived")
@@ -242,27 +279,27 @@ class MainTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.section == 0 && indexPath.row == 1 {
+//        if indexPath.section == 0 && indexPath.row == 1 {
             // Device Name
-            getTextInput("Device Name", message: "Ener new device name", placeholder: "", defaultValue: deviceNameLabel.text, completion: { (returnValue) -> Void in
-                if let newName = returnValue {
-                    if newName != "" {
-                        HMNDeviceInfo.setDeviceName(newName)
-                        self.deviceNameLabel.text = newName
-                    }
-                }
+//            getTextInput("Device Name", message: "Ener new device name", placeholder: "", defaultValue: deviceNameLabel.text, completion: { (returnValue) -> Void in
+//                if let newName = returnValue {
+//                    if newName != "" {
+//                        HMNDeviceInfo.setDeviceName(newName)
+//                        self.deviceNameLabel.text = newName
+//                    }
+//                }
 
-            })
-        }
-        else if indexPath.section == 1 && indexPath.row == 2 {
-            HMNSensorControl.requestColorFromColorPicker()
-        }
-        else if indexPath.section == 1 && indexPath.row == 3 {
-            HMNLedControl.setBackgroundColor(UIColor.blueColor(), propagateToSlaveDevice: false)
-        }
-        else if indexPath.section == 1 && indexPath.row == 4 {
-            HMNLedControl.setLedChar(65, charColor: UIColor.whiteColor(), backgroundColor: UIColor.blackColor(), applyToSlaveDevice: false)
-        }
+//            })
+//        }
+//        else if indexPath.section == 1 && indexPath.row == 2 {
+//            HMNSensorControl.requestColorFromColorPicker()
+//        }
+//        else if indexPath.section == 1 && indexPath.row == 3 {
+//            HMNLedControl.setBackgroundColor(UIColor.blueColor(), propagateToSlaveDevice: false)
+//        }
+//        else if indexPath.section == 1 && indexPath.row == 4 {
+//            HMNLedControl.setLedChar(65, charColor: UIColor.whiteColor(), backgroundColor: UIColor.blackColor(), applyToSlaveDevice: false)
+//        }
 
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
@@ -301,15 +338,15 @@ class MainTableViewController: UITableViewController {
     }
     
     func clearAllLabels() {
-        versionLabel.text = "N/A"
-        deviceNameLabel.text = "N/A"
-        productIDLabel.text = "N/A"
-        moduleIDLabel.text = "N/A"
+//        versionLabel.text = "N/A"
+//        deviceNameLabel.text = "N/A"
+//        productIDLabel.text = "N/A"
+//        moduleIDLabel.text = "N/A"
         batteryChargingStatusLabel.text = "N/A"
         batteryLevelLabel.text = "N/A"
-        linkedDeviceCountLabel.text = "N/A"
-        activeChannelLabel.text = "N/A"
-        audioSourceLabel.text = "N/A"
-        macAddressLabel.text = "N/A"
+//        linkedDeviceCountLabel.text = "N/A"
+//        activeChannelLabel.text = "N/A"
+//        audioSourceLabel.text = "N/A"
+//        macAddressLabel.text = "N/A"
     }
 }
