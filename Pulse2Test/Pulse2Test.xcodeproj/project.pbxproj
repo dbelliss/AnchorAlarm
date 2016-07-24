@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		02FC03291D446F1900C6A52F /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FC03281D446F1900C6A52F /* Genre.swift */; };
+		179E8B5A1D447C12000BDAD3 /* Assets.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 179E8B591D447C12000BDAD3 /* Assets.bundle */; };
+		179E8B5D1D447C26000BDAD3 /* YTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8B5C1D447C26000BDAD3 /* YTPlayerView.m */; };
 		497410391C1AB607002FBCFC /* Pulse2SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 497410381C1AB607002FBCFC /* Pulse2SDK.framework */; };
 		769D074A1C1A00C2000DBB24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769D07491C1A00C2000DBB24 /* AppDelegate.swift */; };
 		769D074F1C1A00C2000DBB24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 769D074D1C1A00C2000DBB24 /* Main.storyboard */; };
@@ -33,6 +35,9 @@
 
 /* Begin PBXFileReference section */
 		02FC03281D446F1900C6A52F /* Genre.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
+		179E8B591D447C12000BDAD3 /* Assets.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Assets.bundle; sourceTree = "<group>"; };
+		179E8B5B1D447C26000BDAD3 /* YTPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTPlayerView.h; sourceTree = "<group>"; };
+		179E8B5C1D447C26000BDAD3 /* YTPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTPlayerView.m; sourceTree = "<group>"; };
 		497410381C1AB607002FBCFC /* Pulse2SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Pulse2SDK.framework; sourceTree = "<group>"; };
 		769D07461C1A00C2000DBB24 /* Pulse2Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pulse2Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		769D07491C1A00C2000DBB24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +67,7 @@
 		497410371C1AAD02002FBCFC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				179E8B591D447C12000BDAD3 /* Assets.bundle */,
 				497410381C1AB607002FBCFC /* Pulse2SDK.framework */,
 				769D07661C1A3846000DBB24 /* ExternalAccessory.framework */,
 			);
@@ -88,6 +94,8 @@
 		769D07481C1A00C2000DBB24 /* Pulse2Test */ = {
 			isa = PBXGroup;
 			children = (
+				179E8B5B1D447C26000BDAD3 /* YTPlayerView.h */,
+				179E8B5C1D447C26000BDAD3 /* YTPlayerView.m */,
 				769D07491C1A00C2000DBB24 /* AppDelegate.swift */,
 				02FC03281D446F1900C6A52F /* Genre.swift */,
 				769D075F1C1A3511000DBB24 /* Pulse2Test-Bridging-Header.h */,
@@ -134,7 +142,7 @@
 				TargetAttributes = {
 					769D07451C1A00C2000DBB24 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = S5P3489F94;
+						DevelopmentTeam = 3R3T22S5TT;
 					};
 				};
 			};
@@ -161,6 +169,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				179E8B5A1D447C12000BDAD3 /* Assets.bundle in Resources */,
 				769D07541C1A00C2000DBB24 /* LaunchScreen.storyboard in Resources */,
 				769D07511C1A00C2000DBB24 /* Assets.xcassets in Resources */,
 				769D074F1C1A00C2000DBB24 /* Main.storyboard in Resources */,
@@ -177,6 +186,7 @@
 				769D075C1C1A02C3000DBB24 /* MainTableViewController.swift in Sources */,
 				76D04E501C1A75DC005C1005 /* LEDPatternTableViewController.swift in Sources */,
 				769D074A1C1A00C2000DBB24 /* AppDelegate.swift in Sources */,
+				179E8B5D1D447C26000BDAD3 /* YTPlayerView.m in Sources */,
 				02FC03291D446F1900C6A52F /* Genre.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,7 +314,7 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Pulse2SDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = fdnasjfkdsakljfhalsdjkest;
+				PRODUCT_BUNDLE_IDENTIFIER = fdnasjfkddsakljfhalsdjkest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Pulse2Test/Pulse2Test-Bridging-Header.h";
@@ -331,7 +341,7 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Pulse2SDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = fdnasjfkdsakljfhalsdjkest;
+				PRODUCT_BUNDLE_IDENTIFIER = fdnasjfkddsakljfhalsdjkest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Pulse2Test/Pulse2Test-Bridging-Header.h";
