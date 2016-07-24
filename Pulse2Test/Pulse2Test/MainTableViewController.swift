@@ -23,16 +23,8 @@ class MainTableViewController: UITableViewController {
     @IBOutlet weak var alarmLabel: UILabel!//Label to indicate status of alarm
 //    @IBOutlet weak var versionLabel: UILabel!
 //    @IBOutlet weak var deviceNameLabel: UILabel!
-    @IBOutlet weak var productIDLabel: UILabel!
-    @IBOutlet weak var moduleIDLabel: UILabel!
-    @IBOutlet weak var batteryChargingStatusLabel: UILabel!
+       @IBOutlet weak var batteryChargingStatusLabel: UILabel!
     @IBOutlet weak var batteryLevelLabel: UILabel!
-    
-    @IBOutlet weak var linkedDeviceCountLabel: UILabel!
-    
-    @IBOutlet weak var activeChannelLabel: UILabel!
-    
-    @IBOutlet weak var audioSourceLabel: UILabel!
     
 //    @IBOutlet weak var macAddressLabel: UILabel!
 //    
@@ -41,10 +33,8 @@ class MainTableViewController: UITableViewController {
     @IBOutlet weak var ledInfoLabel: UILabel!
     
     @IBOutlet weak var ledBrightnessLabel: UILabel!
-    
 //    @IBOutlet weak var colorSampleLabel: UILabel!
-    
-        var currentGenre = "Politics"
+    var currentGenre = "Politics"
 //    @IBOutlet weak var colorLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,15 +42,12 @@ class MainTableViewController: UITableViewController {
 //        currentGenre = appDelegate.genre
         MainTableViewControllerShared = self
         MainTableViewControllerShared = self
-        
         youtube.loadWithVideoId("q6yHoSvrTss")
-        
         // schedule playback after a delay
-        let dispatchTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(5 * Double(NSEC_PER_SEC)))
+        let dispatchTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(9 * Double(NSEC_PER_SEC)))
         dispatch_after(dispatchTime, dispatch_get_main_queue(), {
             self.youtube.playVideo()
-            
-            print("hello")
+            print("playing video")
         })
         
         
@@ -178,13 +165,10 @@ func sendNotification()
             let devMacAddressValue = devInfoDict[KEY_DEVICE_INFO_MAC_ADDRESS_VALUE]!
 
 //            deviceNameLabel.text = devName as? String
-            productIDLabel.text = "\(devProductID)"
-            moduleIDLabel.text = "\(devModelID)"
+         
             batteryChargingStatusLabel.text = devBatteryIsCharging! ? "On" : "Off"
             batteryLevelLabel.text = "\(devBatteryValue)"
-            linkedDeviceCountLabel.text = "\(devLinkedDeviceCount)"
-            activeChannelLabel.text = "\(devActiveChannelValue)"
-            audioSourceLabel.text = "\(devAudioSourceValue)"
+         
 //            macAddressLabel.text = devMacAddressValue as? String
             
             
@@ -360,13 +344,10 @@ func sendNotification()
     func clearAllLabels() {
 //        versionLabel.text = "N/A"
 //        deviceNameLabel.text = "N/A"
-        productIDLabel.text = "N/A"
-        moduleIDLabel.text = "N/A"
+     
         batteryChargingStatusLabel.text = "N/A"
         batteryLevelLabel.text = "N/A"
-        linkedDeviceCountLabel.text = "N/A"
-        activeChannelLabel.text = "N/A"
-        audioSourceLabel.text = "N/A"
+
 //        macAddressLabel.text = "N/A"
     }
 }
