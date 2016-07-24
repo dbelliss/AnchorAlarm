@@ -1,42 +1,47 @@
 //
-//  Genre.swift
+//  LEDPatternTableViewController.swift
 //  Pulse2Test
 //
-//  Created by Davey Jay Belliss on 7/23/16.
-//  Copyright © 2016 Harman International. All rights reserved.
+//  Created by Seonman Kim on 12/10/15.
+//  Copyright © 2015 Harman International. All rights reserved.
 //
 
 import UIKit
 
-class LEDPattern : UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-    
-    
-    @IBOutlet weak var pattern: UIPickerView!
-    @IBOutlet weak var label: UILabel!
-    var pickerData: [String] = [String]()
+class LEDPattern: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        self.pattern.delegate = self
-        self.pattern.dataSource = self
-        // Input data into the Array:
-        pickerData = [ "Firework", "Traffic", "Star", "Wave", "FireFly", "Rain", "Fire", "Canvas", "Hourglass", "Ripple"]
-//
+        
+        tableView.reloadData()
     }
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    
+    // MARK: - Table view data source
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerData.count
-        
-    }//
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return LEDPatternNames.count
+    }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("LEDPattern_Cell", forIndexPath: indexPath)
+        cell.textLabel?.text = LEDPatternNames[indexPath.row]
         
-        g_ledPatternID = HMNPattern(rawValue:row)!
+        if indexPath.row == g_ledPatternID.rawValue {
+            cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+        } else {
+            cell.accessoryType = UITableViewCellAccessoryType.None
+        }
+        return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        g_ledPatternID = HMNPattern(rawValue: indexPath.row)!
         if g_ledPatternID ==  HMNPattern.FireFly || g_ledPatternID == HMNPattern.Canvas {
             let imageMatrix = [
                 0,	0,	0,	0,	0,	0,	0,	0,	0,	1,	0,
@@ -60,15 +65,13 @@ class LEDPattern : UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
             HMNLedControl.setLedPattern(g_ledPatternID, withData: nil)
         }
         MainTableViewControllerShared.ledInfoLabel.text = LEDPatternNames[g_ledPatternID.rawValue]
-
+        tableView.reloadData()
         
-        return pickerData[row]
-        
-      
     }
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        label.text = pickerData[row]
-        
-    }
-   }
+    
+    
+    
+    
+    
+}

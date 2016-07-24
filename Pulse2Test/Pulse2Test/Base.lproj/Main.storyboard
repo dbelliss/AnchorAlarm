@@ -199,7 +199,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="VXy-Lg-Dd6" kind="show" id="VLz-uD-YfM"/>
+                                            <segue destination="qGk-PG-ePf" kind="show" id="Ur7-Rr-sDR"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -228,6 +228,30 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PJK-BY-7fI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1234" y="256"/>
+        </scene>
+        <!--Pattern Table View Controller-->
+        <scene sceneID="TbS-Hq-AMl">
+            <objects>
+                <tableViewController id="qGk-PG-ePf" customClass="LEDPatternTableViewController" customModule="Pulse2Test" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="E66-k2-9NM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="900"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="aDF-jQ-zuR">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aDF-jQ-zuR" id="rj7-10-rMc">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="osm-6b-nmP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1269" y="1441"/>
         </scene>
         <!--Genre View Controller-->
         <scene sceneID="uJV-Y9-W7p">
@@ -298,58 +322,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gI8-qY-LPx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="308" y="373"/>
-        </scene>
-        <!--Pattern-->
-        <scene sceneID="yiA-0U-MkU">
-            <objects>
-                <viewController id="VXy-Lg-Dd6" customClass="LEDPattern" customModule="Pulse2Test" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="BUT-FA-cLg"/>
-                        <viewControllerLayoutGuide type="bottom" id="Mf7-Dl-lOd"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8JW-Ur-IvE">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="900"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gu6-3N-2K9" userLabel="Patterns">
-                                <rect key="frame" x="140" y="161" width="320" height="216"/>
-                            </pickerView>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="liF-Se-KxQ">
-                                <rect key="frame" x="49" y="100" width="152" height="21"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Current Pattern:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uTK-v3-aUj">
-                                        <rect key="frame" x="0.0" y="0.0" width="123" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="N/A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SPK-CR-VLW">
-                                        <rect key="frame" x="123" y="0.0" width="29" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="gu6-3N-2K9" firstAttribute="centerX" secondItem="8JW-Ur-IvE" secondAttribute="centerX" id="7EK-V9-GYm"/>
-                            <constraint firstItem="liF-Se-KxQ" firstAttribute="centerX" secondItem="8JW-Ur-IvE" secondAttribute="centerX" id="GlV-sE-36n"/>
-                            <constraint firstItem="gu6-3N-2K9" firstAttribute="centerX" secondItem="8JW-Ur-IvE" secondAttribute="centerX" id="a5V-bf-NFw"/>
-                            <constraint firstItem="gu6-3N-2K9" firstAttribute="centerY" secondItem="8JW-Ur-IvE" secondAttribute="centerY" constant="-181" id="bUq-zG-Y2C"/>
-                            <constraint firstItem="gu6-3N-2K9" firstAttribute="centerY" secondItem="8JW-Ur-IvE" secondAttribute="centerY" constant="-181" id="gfJ-fj-nLY"/>
-                            <constraint firstItem="liF-Se-KxQ" firstAttribute="top" secondItem="8JW-Ur-IvE" secondAttribute="topMargin" constant="100" id="u36-Dk-grm"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="label" destination="SPK-CR-VLW" id="Bye-HJ-9OM"/>
-                        <outlet property="pattern" destination="gu6-3N-2K9" id="doS-b3-nhC"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Uds-ZU-qJy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1234" y="1484"/>
         </scene>
     </scenes>
 </document>
