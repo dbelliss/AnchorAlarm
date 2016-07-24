@@ -13,19 +13,17 @@ class GenreViewController : UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet weak var genre: UIPickerView!
     @IBOutlet weak var label: UILabel!
     var pickerData: [String] = [String]()
-    var currentGenre = "Politics"
+    var currentGenre = "0"
     override func viewDidLoad() {
     
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let currentGenre = appDelegate.genre
-    
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.genre.delegate = self
         self.genre.dataSource = self
         // Input data into the Array:
-        pickerData = ["Politics", "Sports", "Dunkey", "Item 4", "Item 5", "Item 6"]
-        
+        pickerData = ["Politics", "Sports", "Technology", "Pop Culture"]
         genre.selectRow(appDelegate.genre, inComponent: 0, animated: true)
 
     }

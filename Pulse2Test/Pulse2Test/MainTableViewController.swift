@@ -16,52 +16,32 @@ var MainTableViewControllerShared: MainTableViewController!
 class MainTableViewController: UITableViewController {
 
     @IBOutlet weak var youtube: YTPlayerView!
-    
     @IBOutlet weak var datePicker: UIDatePicker!
-//    @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var alarmSlider: UISwitch! //Slider to activate alarm
     @IBOutlet weak var alarmLabel: UILabel!//Label to indicate status of alarm
-//    @IBOutlet weak var versionLabel: UILabel!
-//    @IBOutlet weak var deviceNameLabel: UILabel!
-       @IBOutlet weak var batteryChargingStatusLabel: UILabel!
+    @IBOutlet weak var batteryChargingStatusLabel: UILabel!
     @IBOutlet weak var batteryLevelLabel: UILabel!
-    
-//    @IBOutlet weak var macAddressLabel: UILabel!
-//    
-    
     @IBOutlet weak var brightSlider: UISlider!
     @IBOutlet weak var ledInfoLabel: UILabel!
-    
     @IBOutlet weak var ledBrightnessLabel: UILabel!
-//    @IBOutlet weak var colorSampleLabel: UILabel!
-    var currentGenre = "Politics"
-//    @IBOutlet weak var colorLabel: UILabel!
+    let timeInterval = NSDate().timeIntervalSince1970
+    var currentGenre = 0
+    var endTime = NSDate().timeIntervalSince1970
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        endTime = 0;
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-//        currentGenre = appDelegate.genre
+        currentGenre = appDelegate.genre
+        var timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("sendAlarm"), userInfo: nil, repeats: true)
         MainTableViewControllerShared = self
         MainTableViewControllerShared = self
-        youtube.loadWithVideoId("q6yHoSvrTss")
-        // schedule playback after a delay
-        let dispatchTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(9 * Double(NSEC_PER_SEC)))
-        dispatch_after(dispatchTime, dispatch_get_main_queue(), {
-            self.youtube.playVideo()
-            print("playing video")
-        })
-        
-        
-//        webView.mediaPlaybackRequiresUserAction=false;
-//        webView.allowsInlineMediaPlayback=true;
-//        let youtubeURL = "https://www.youtube.com/embed/Rg6GLVUnnpM?rel=0&autoplay=1"
-//        webView.loadHTMLString("<iframe width=\"560\" height=\"315\" src=\"\(youtubeURL)\" frameborder=\"0\" allowfullscreen></iframe>", baseURL: nil)
         subscribeForNotification()
         HMNDeviceGeneral.connectToMasterDevice()
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
         tableView.reloadData()
     }
 
@@ -70,7 +50,7 @@ class MainTableViewController: UITableViewController {
 @IBAction func toggleSlider(sender: AnyObject) {
     if (self.alarmLabel.text == "Off") {
         self.alarmLabel.text = "On" //Turn on
-        sendNotification()
+        endTime = NSDate().timeIntervalSince1970
         NSLog(self.alarmLabel.text!)
     }//Turn on alarm
     else {
@@ -80,21 +60,44 @@ class MainTableViewController: UITableViewController {
         let alertController = UIAlertController(title: "Alarm canceled", message:
             nil, preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
-        
+        endTime = 0;
         self.presentViewController(alertController, animated: true, completion: nil)
     }//Turn off alarm
 }
 
-func sendNotification()
+func sendAlarm()
 {
-      let localNotification = UILocalNotification()
-      localNotification.fireDate = datePicker.date
-      localNotification.alertBody = "The alarm is going off"
-      localNotification.timeZone = NSTimeZone.defaultTimeZone()
-      localNotification.applicationIconBadgeNumber = UIApplication.sharedApplication().applicationIconBadgeNumber + 1
-         localNotification.soundName = UILocalNotificationDefaultSoundName
-      localNotification.soundName = "doorbell.m4a";
-      UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+    if (NSDate().timeIntervalSince1970 >= endTime && endTime != 0)
+    {
+        endTime = 0;
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let currentGenre = appDelegate.genre
+       //["Politics", "Sports", "Technology", "Pop Culture"]
+        switch currentGenre {
+        case 0:
+            youtube.loadWithVideoId("cJ4fHIfkB_k");
+            break;
+        case 1:
+            youtube.loadWithVideoId("Qefi60FTZz0");
+            break;
+        case 2:
+            youtube.loadWithVideoId("0aUFm2FFJwM")
+            break;
+        case 3:
+            youtube.loadWithVideoId("PerTe7TSAHc")
+            break
+        default:
+            youtube.loadWithVideoId("q6yHoSvrTss")
+        }
+        
+        // schedule playback after a delay
+        let dispatchTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(9 * Double(NSEC_PER_SEC)))
+        dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+            self.youtube.playVideo()
+            print("playing video")
+             NSLog("Times up")
+        })
+    }
 }
 
 
