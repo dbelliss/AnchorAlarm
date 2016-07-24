@@ -43,10 +43,13 @@ class MainTableViewController: UITableViewController {
     @IBOutlet weak var ledBrightnessLabel: UILabel!
     
 //    @IBOutlet weak var colorSampleLabel: UILabel!
+    
+        var currentGenre = "Politics"
 //    @IBOutlet weak var colorLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//        currentGenre = appDelegate.genre
         MainTableViewControllerShared = self
         MainTableViewControllerShared = self
         

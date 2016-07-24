@@ -9,13 +9,16 @@
 import UIKit
 
 class GenreViewController : UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-    
-    
+
     @IBOutlet weak var genre: UIPickerView!
     @IBOutlet weak var label: UILabel!
     var pickerData: [String] = [String]()
-    
+    var currentGenre = "Politics"
     override func viewDidLoad() {
+    
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let currentGenre = appDelegate.genre
+    
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.genre.delegate = self
@@ -23,6 +26,14 @@ class GenreViewController : UIViewController, UIPickerViewDelegate, UIPickerView
         // Input data into the Array:
         pickerData = ["Politics", "Sports", "Dunkey", "Item 4", "Item 5", "Item 6"]
         
+        genre.selectRow(appDelegate.genre, inComponent: 0, animated: true)
+
+    }
+
+    override func viewWillDisappear(animated: Bool) {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.genre = genre.selectedRowInComponent(0)
+        print(genre.selectedRowInComponent(0))
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
@@ -30,35 +41,13 @@ class GenreViewController : UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+       
         return pickerData.count
     }//
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+      
         return pickerData[row]
+        
     }
-    
-    //
-    //    override func viewDidLoad() {
-    //        super.viewDidLoad()
-    //        // Do any additional setup after loading the view, typically from a nib.
-    //    }
-    //
-    //    override func didReceiveMemoryWarning() {
-    //        super.didReceiveMemoryWarning()
-    //        // Dispose of any resources that can be recreated.
-    //    }
-    //
-    //    func tableView(tableView:UITableView!, numberOfRowsInSection section:Int) -> Int
-    //    {
-    //        return 20
-    //    }
-    //
-    //    func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell!
-    //    {
-    //        let cell:UITableViewCell=UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "mycell")
-    //        cell.textLabel!.text="row#\(indexPath.row)"
-    //        cell.detailTextLabel!.text="subtitle#\(indexPath.row)"
-    //
-    //        return cell
-    //    }
 }

@@ -10,8 +10,11 @@ import UIKit
 
 class LEDPatternTableViewController: UITableViewController {
     
+//    var currentGenre = "Politics"
     override func viewDidLoad() {
         super.viewDidLoad()
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//        currentGenre = appDelegate.genre
         
         tableView.reloadData()
     }
