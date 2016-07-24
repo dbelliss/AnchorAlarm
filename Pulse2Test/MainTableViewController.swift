@@ -15,13 +15,13 @@ var g_ledPatternID = HMNPattern.Firework
 var MainTableViewControllerShared: MainTableViewController!
 class MainTableViewController: UITableViewController {
 
-
+    
+    @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var alarmSlider: UISwitch! //Slider to activate alarm
     @IBOutlet weak var alarmLabel: UILabel!//Label to indicate status of alarm
-    
-    @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var deviceNameLabel: UILabel!
+//    @IBOutlet weak var versionLabel: UILabel!
+//    @IBOutlet weak var deviceNameLabel: UILabel!
     @IBOutlet weak var productIDLabel: UILabel!
     @IBOutlet weak var moduleIDLabel: UILabel!
     @IBOutlet weak var batteryChargingStatusLabel: UILabel!
@@ -33,19 +33,20 @@ class MainTableViewController: UITableViewController {
     
     @IBOutlet weak var audioSourceLabel: UILabel!
     
-    @IBOutlet weak var macAddressLabel: UILabel!
-    
+//    @IBOutlet weak var macAddressLabel: UILabel!
+//    
     
     @IBOutlet weak var brightSlider: UISlider!
     @IBOutlet weak var ledInfoLabel: UILabel!
     
     @IBOutlet weak var ledBrightnessLabel: UILabel!
     
-    @IBOutlet weak var colorSampleLabel: UILabel!
-    @IBOutlet weak var colorLabel: UILabel!
+//    @IBOutlet weak var colorSampleLabel: UILabel!
+//    @IBOutlet weak var colorLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        MainTableViewControllerShared = self
         MainTableViewControllerShared = self
         
         webView.mediaPlaybackRequiresUserAction=false;
@@ -56,11 +57,44 @@ class MainTableViewController: UITableViewController {
         HMNDeviceGeneral.connectToMasterDevice()
     }
     
-//    override func viewDidAppear(animated: Bool) {
-//        super.viewDidAppear(animated)
-//        
-//        tableView.reloadData()
-//    }
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        tableView.reloadData()
+    }
+
+
+
+@IBAction func toggleSlider(sender: AnyObject) {
+    if (self.alarmLabel.text == "Off") {
+        self.alarmLabel.text = "On" //Turn on
+        sendNotification()
+        NSLog(self.alarmLabel.text!)
+    }//Turn on alarm
+    else {
+        self.alarmLabel.text = "Off"
+        NSLog(self.alarmLabel.text!)
+        NSLog("Alarm disarmed. How alarming.")
+        let alertController = UIAlertController(title: "Alarm canceled", message:
+            nil, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }//Turn off alarm
+}
+
+func sendNotification()
+{
+      let localNotification = UILocalNotification()
+      localNotification.fireDate = datePicker.date
+      localNotification.alertBody = "The alarm is going off"
+      localNotification.timeZone = NSTimeZone.defaultTimeZone()
+      localNotification.applicationIconBadgeNumber = UIApplication.sharedApplication().applicationIconBadgeNumber + 1
+         localNotification.soundName = UILocalNotificationDefaultSoundName
+      localNotification.soundName = "doorbell.m4a";
+      UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+}
+
 
     func subscribeForNotification() {
         print("subscibeForNotification")
@@ -81,38 +115,6 @@ class MainTableViewController: UITableViewController {
         
     }
 
-    @IBAction func toggleSlider(sender: AnyObject) {
-        if (self.alarmLabel.text == "Off") {
-            self.alarmLabel.text = "On" //Turn on
-            sendNotification()
-            NSLog(self.alarmLabel.text!)
-        }//Turn on alarm
-        else {
-            self.alarmLabel.text = "Off"
-            NSLog(self.alarmLabel.text!)
-            NSLog("Alarm disarmed. How alarming.")
-            let alertController = UIAlertController(title: "Alarm canceled", message:
-                nil, preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
-            
-            self.presentViewController(alertController, animated: true, completion: nil)
-        }//Turn off alarm
-    }
-    
-    func sendNotification()
-    {
-        let localNotification = UILocalNotification()
-        localNotification.fireDate = datePicker.date
-        localNotification.alertBody = "The alarm is going off"
-        localNotification.timeZone = NSTimeZone.defaultTimeZone()
-        localNotification.applicationIconBadgeNumber = UIApplication.sharedApplication().applicationIconBadgeNumber + 1
-        // localNotification.soundName = UILocalNotificationDefaultSoundName
-        localNotification.soundName = "doorbell.m4a";
-        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
-    }
-
-    
-    
     func deviceConnected(notification: NSNotification) {
         print("deviceConnected")
         
@@ -161,13 +163,13 @@ class MainTableViewController: UITableViewController {
             let devMacAddressValue = devInfoDict[KEY_DEVICE_INFO_MAC_ADDRESS_VALUE]!
 
 //            deviceNameLabel.text = devName as? String
-//            productIDLabel.text = "\(devProductID)"
-//            moduleIDLabel.text = "\(devModelID)"
+            productIDLabel.text = "\(devProductID)"
+            moduleIDLabel.text = "\(devModelID)"
             batteryChargingStatusLabel.text = devBatteryIsCharging! ? "On" : "Off"
             batteryLevelLabel.text = "\(devBatteryValue)"
-//            linkedDeviceCountLabel.text = "\(devLinkedDeviceCount)"
-//            activeChannelLabel.text = "\(devActiveChannelValue)"
-//            audioSourceLabel.text = "\(devAudioSourceValue)"
+            linkedDeviceCountLabel.text = "\(devLinkedDeviceCount)"
+            activeChannelLabel.text = "\(devActiveChannelValue)"
+            audioSourceLabel.text = "\(devAudioSourceValue)"
 //            macAddressLabel.text = devMacAddressValue as? String
             
             
@@ -200,9 +202,9 @@ class MainTableViewController: UITableViewController {
             let B = (deviceInfoDict[KEY_COLOR_B]?.integerValue)!
             
             print("RGB Color: \(R), \(G), \(B)")
-            colorLabel.text = "R: \(R)\nG: \(G)\nB: \(B)"
+//            colorLabel.text = "R: \(R)\nG: \(G)\nB: \(B)"
             let color = UIColor(red: CGFloat(R)/256, green: CGFloat(G)/256, blue: CGFloat(B)/256, alpha: 1.0)
-            colorSampleLabel.backgroundColor = color
+//            colorSampleLabel.backgroundColor = color
             
         } else {
             print("Error in sensorCaptureColorReceived")
@@ -231,7 +233,7 @@ class MainTableViewController: UITableViewController {
             let hwVersion = deviceInfoDict[KEY_HW_VERSION]!
             
 //            versionLabel.text = "SW: \(swVersion), HW: \(hwVersion)"
- //           print("SW Version: \(swVersion), HW Version: \(hwVersion)")
+            print("SW Version: \(swVersion), HW Version: \(hwVersion)")
             
         } else {
             print("Error in patternReceived")
@@ -281,9 +283,9 @@ class MainTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        if indexPath.section == 0 && indexPath.row == 1 {
+        if indexPath.section == 0 && indexPath.row == 1 {
             // Device Name
-//            getTextInput("Device Name", message: "Ener new device name", placeholder: "", defaultValue: deviceNameLabel.text, completion: { (returnValue) -> Void in
+////            getTextInput("Device Name", message: "Ener new device name", placeholder: "", defaultValue: deviceNameLabel.text, completion: { (returnValue) -> Void in
 //                if let newName = returnValue {
 //                    if newName != "" {
 //                        HMNDeviceInfo.setDeviceName(newName)
@@ -292,16 +294,16 @@ class MainTableViewController: UITableViewController {
 //                }
 
 //            })
-//        }
-//        else if indexPath.section == 1 && indexPath.row == 2 {
-//            HMNSensorControl.requestColorFromColorPicker()
-//        }
-//        else if indexPath.section == 1 && indexPath.row == 3 {
-//            HMNLedControl.setBackgroundColor(UIColor.blueColor(), propagateToSlaveDevice: false)
-//        }
-//        else if indexPath.section == 1 && indexPath.row == 4 {
-//            HMNLedControl.setLedChar(65, charColor: UIColor.whiteColor(), backgroundColor: UIColor.blackColor(), applyToSlaveDevice: false)
-//        }
+        }
+        else if indexPath.section == 1 && indexPath.row == 2 {
+            HMNSensorControl.requestColorFromColorPicker()
+        }
+        else if indexPath.section == 1 && indexPath.row == 3 {
+            HMNLedControl.setBackgroundColor(UIColor.blueColor(), propagateToSlaveDevice: false)
+        }
+        else if indexPath.section == 1 && indexPath.row == 4 {
+            HMNLedControl.setLedChar(65, charColor: UIColor.whiteColor(), backgroundColor: UIColor.blackColor(), applyToSlaveDevice: false)
+        }
 
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
@@ -325,6 +327,7 @@ class MainTableViewController: UITableViewController {
         alertController.addAction(action)
         presentViewController(alertController, animated: true, completion: nil)
     }
+    
 
     @IBAction func changeBackground(sender: AnyObject) {
         HMNLedControl.setBackgroundColor(UIColor.blueColor(), propagateToSlaveDevice: false)
@@ -342,13 +345,13 @@ class MainTableViewController: UITableViewController {
     func clearAllLabels() {
 //        versionLabel.text = "N/A"
 //        deviceNameLabel.text = "N/A"
-//        productIDLabel.text = "N/A"
-//        moduleIDLabel.text = "N/A"
+        productIDLabel.text = "N/A"
+        moduleIDLabel.text = "N/A"
         batteryChargingStatusLabel.text = "N/A"
         batteryLevelLabel.text = "N/A"
-//        linkedDeviceCountLabel.text = "N/A"
-//        activeChannelLabel.text = "N/A"
-//        audioSourceLabel.text = "N/A"
+        linkedDeviceCountLabel.text = "N/A"
+        activeChannelLabel.text = "N/A"
+        audioSourceLabel.text = "N/A"
 //        macAddressLabel.text = "N/A"
     }
 }

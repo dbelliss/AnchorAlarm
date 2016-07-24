@@ -9,28 +9,28 @@
 import UIKit
 
 class LEDPatternTableViewController: UITableViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView.reloadData()
     }
-
-
+    
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return LEDPatternNames.count
     }
-
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("LEDPattern_Cell", forIndexPath: indexPath)
         cell.textLabel?.text = LEDPatternNames[indexPath.row]
-
+        
         if indexPath.row == g_ledPatternID.rawValue {
             cell.accessoryType = UITableViewCellAccessoryType.Checkmark
         } else {
@@ -38,7 +38,7 @@ class LEDPatternTableViewController: UITableViewController {
         }
         return cell
     }
-
+    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         g_ledPatternID = HMNPattern(rawValue: indexPath.row)!
@@ -54,7 +54,7 @@ class LEDPatternTableViewController: UITableViewController {
                 0,	0,	0,	0,	0,	0,	0,	0,	0,	1,	0,
                 0,	0,	0,	0,	0,	0,	0,	0,	0,	1,	0
             ];
-
+            
             var array = [NSNumber]()
             for (var i = 0; i < LED_COUNT; i++) {
                 array.append(imageMatrix[i])
@@ -71,7 +71,7 @@ class LEDPatternTableViewController: UITableViewController {
     
     
     
-
-
-
+    
+    
+    
 }

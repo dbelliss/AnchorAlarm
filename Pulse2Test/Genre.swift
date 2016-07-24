@@ -36,7 +36,7 @@ class GenreViewController : UIViewController, UIPickerViewDelegate, UIPickerView
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerData[row]
     }
-
+    
     //
     //    override func viewDidLoad() {
     //        super.viewDidLoad()
@@ -58,7 +58,7 @@ class GenreViewController : UIViewController, UIPickerViewDelegate, UIPickerView
     //        let cell:UITableViewCell=UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "mycell")
     //        cell.textLabel!.text="row#\(indexPath.row)"
     //        cell.detailTextLabel!.text="subtitle#\(indexPath.row)"
-    //        
+    //
     //        return cell
     //    }
 }
