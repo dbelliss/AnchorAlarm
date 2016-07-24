@@ -66,7 +66,7 @@ class LEDPatternTableViewController: UITableViewController {
         }
         MainTableViewControllerShared.ledInfoLabel.text = LEDPatternNames[g_ledPatternID.rawValue]
         tableView.reloadData()
-        
+        HMNLedControl.setLedBrightness(255)
     }
     
     

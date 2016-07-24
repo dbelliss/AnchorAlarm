@@ -110,13 +110,14 @@ func sendAlarm()
     
     if( alarmSlider.on )
     {
-    self.seconds.text = niceTime.description
+        self.seconds.text = niceTime.description
     }
 //    print((endTime - curTime))
 //    print(String(format: "%f %f delta %f", endTime, curTime, endTime-curTime))
     if ( delta < 0 && alarmSlider.on )
     {
         
+        self.seconds.text = ""
         self.youtube.playVideo()
    
         
@@ -185,15 +186,15 @@ func sendAlarm()
         
         if let devInfoDict = notification.userInfo {
             let devDeviceIndex = (devInfoDict[KEY_DEVICE_INFO_DEVICE_INDEX]?.integerValue)!
-            let devName = devInfoDict[KEY_DEVICE_INFO_DEVICE_NAME]!
-            let devProductID = (devInfoDict[KEY_DEVICE_INFO_PRODUCT_ID]?.integerValue)!
-            let devModelID = (devInfoDict[KEY_DEVICE_INFO_MODEL_ID]?.integerValue)!
+//            let devName = devInfoDict[KEY_DEVICE_INFO_DEVICE_NAME]!
+//            let devProductID = (devInfoDict[KEY_DEVICE_INFO_PRODUCT_ID]?.integerValue)!
+//            let devModelID = (devInfoDict[KEY_DEVICE_INFO_MODEL_ID]?.integerValue)!
             let devBatteryIsCharging = devInfoDict[KEY_DEVICE_INFO_BATTERY_IS_CHARGING]?.boolValue
             let devBatteryValue = (devInfoDict[KEY_DEVICE_INFO_BATTERY_VALUE]?.integerValue)!
-            let devLinkedDeviceCount = (devInfoDict[KEY_DEVICE_INFO_LINKED_DEVICE_COUNT]?.integerValue)!
-            let devActiveChannelValue = (devInfoDict[KEY_DEVICE_INFO_ACTIVE_CHANNEL_VALUE]?.integerValue)!
-            let devAudioSourceValue = (devInfoDict[KEY_DEVICE_INFO_AUDIO_SOURCE_VALUE]?.integerValue)!
-            let devMacAddressValue = devInfoDict[KEY_DEVICE_INFO_MAC_ADDRESS_VALUE]!
+//            let devLinkedDeviceCount = (devInfoDict[KEY_DEVICE_INFO_LINKED_DEVICE_COUNT]?.integerValue)!
+//            let devActiveChannelValue = (devInfoDict[KEY_DEVICE_INFO_ACTIVE_CHANNEL_VALUE]?.integerValue)!
+//            let devAudioSourceValue = (devInfoDict[KEY_DEVICE_INFO_AUDIO_SOURCE_VALUE]?.integerValue)!
+//            let devMacAddressValue = devInfoDict[KEY_DEVICE_INFO_MAC_ADDRESS_VALUE]!
 
 //            deviceNameLabel.text = devName as? String
          
@@ -202,17 +203,17 @@ func sendAlarm()
          
 //            macAddressLabel.text = devMacAddressValue as? String
             
-            
-            print("devDeviceIndex: \(devDeviceIndex)")
-            print("devName: \(devName)")
-            print("devProductID: \(devProductID)")
-            print("devModelID: \(devModelID)")
-            print("devBatteryIsCharging: \(devBatteryIsCharging)")
-            print("devBatteryValue: \(devBatteryValue)")
-            print("devLinedDeviceCount: \(devLinkedDeviceCount)")
-            print("devActiveChannelValue: \(devActiveChannelValue)")
-            print("devAudioSourceValue: \(devAudioSourceValue)")
-            print("devMacAddressValue: \(devMacAddressValue)")
+//            
+//            print("devDeviceIndex: \(devDeviceIndex)")
+//            print("devName: \(devName)")
+//            print("devProductID: \(devProductID)")
+//            print("devModelID: \(devModelID)")
+//            print("devBatteryIsCharging: \(devBatteryIsCharging)")
+//            print("devBatteryValue: \(devBatteryValue)")
+//            print("devLinedDeviceCount: \(devLinkedDeviceCount)")
+//            print("devActiveChannelValue: \(devActiveChannelValue)")
+//            print("devAudioSourceValue: \(devAudioSourceValue)")
+//            print("devMacAddressValue: \(devMacAddressValue)")
             
 
         } else {
