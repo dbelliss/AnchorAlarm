@@ -58,6 +58,30 @@ class MainTableViewController: UITableViewController {
         self.alarmLabel.text = "On" //Turn on
         alarmTime = datePicker.date
         NSLog(self.alarmLabel.text!)
+        
+        // preload video
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let currentGenre = appDelegate.genre
+        //["Politics", "Sports", "Technology", "Pop Culture"]
+        switch currentGenre {
+        case 0:
+            youtube.loadWithVideoId("cJ4fHIfkB_k");
+            break;
+        case 1:
+            youtube.loadWithVideoId("xcYCGHub4q0");
+            break;
+        case 2:
+            youtube.loadWithVideoId("0aUFm2FFJwM")
+            break;
+        case 3:
+            youtube.loadWithVideoId("PerTe7TSAHc")
+            break
+        default:
+            youtube.loadWithVideoId("q6yHoSvrTss")
+        }
+        
+        
+        
     }//Turn on alarm
     else {
         self.alarmLabel.text = "Off"
@@ -84,35 +108,10 @@ func sendAlarm()
 //    print(String(format: "%f %f delta %f", endTime, curTime, endTime-curTime))
     if ( delta < 0 && alarmSlider.on )
     {
-       
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let currentGenre = appDelegate.genre
-       //["Politics", "Sports", "Technology", "Pop Culture"]
-        switch currentGenre {
-        case 0:
-            youtube.loadWithVideoId("cJ4fHIfkB_k");
-            break;
-        case 1:
-            youtube.loadWithVideoId("xcYCGHub4q0");
-            break;
-        case 2:
-            youtube.loadWithVideoId("0aUFm2FFJwM")
-            break;
-        case 3:
-            youtube.loadWithVideoId("PerTe7TSAHc")
-            break
-        default:
-            youtube.loadWithVideoId("q6yHoSvrTss")
-        }
         
-        // schedule playback after a delay
-        let dispatchTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(9 * Double(NSEC_PER_SEC)))
-        dispatch_after(dispatchTime, dispatch_get_main_queue(), {
-            self.youtube.playVideo()
-            print("playing video")
-             NSLog("Times up")
-
-        })
+        self.youtube.playVideo()
+   
+        
         self.endTime = 0;
         self.alarmSlider.setOn(false, animated :true)
         self.alarmLabel.text = "Off"
