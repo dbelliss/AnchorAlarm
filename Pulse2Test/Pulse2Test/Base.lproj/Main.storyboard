@@ -164,11 +164,11 @@
                                             <segue destination="5kl-BO-ALZ" kind="show" id="KYV-xD-cPr"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="IW0-FM-746">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="IW0-FM-746">
                                         <rect key="frame" x="0.0" y="601" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IW0-FM-746" id="aoh-6h-B0G">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Genres" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1En-us-Ddv">
@@ -196,7 +196,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Alarm Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kvc-XT-MT7">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Alarm Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kvc-XT-MT7">
                                                     <rect key="frame" x="23" y="11" width="99" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -224,12 +224,20 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ky8-ML-FEr">
+                                                    <rect key="frame" x="152" y="11" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="2sZ-y3-X8V" firstAttribute="leading" secondItem="Ayr-8c-sgA" secondAttribute="trailing" constant="16" id="F2A-h1-Ju8"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="2sZ-y3-X8V" secondAttribute="trailing" constant="12" id="Nob-B3-yMU"/>
+                                                <constraint firstItem="Ky8-ML-FEr" firstAttribute="leading" secondItem="Kvc-XT-MT7" secondAttribute="trailing" constant="16" id="WG0-g2-MQz"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="2sZ-y3-X8V" secondAttribute="bottom" constant="-1.5" id="cqS-J0-3Cg"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Ayr-8c-sgA" secondAttribute="bottom" constant="4.5" id="dwm-yW-Wze"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Ky8-ML-FEr" secondAttribute="bottom" constant="4.5" id="tdy-L7-Q3W"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -253,6 +261,7 @@
                         <outlet property="datePicker" destination="8rP-yc-fYY" id="sQV-zb-YQn"/>
                         <outlet property="ledBrightnessLabel" destination="hx9-gI-aHb" id="3hv-Zs-vNa"/>
                         <outlet property="ledInfoLabel" destination="uyH-DZ-OnC" id="7Yl-ib-vH1"/>
+                        <outlet property="seconds" destination="Ky8-ML-FEr" id="ehf-Fe-Joq"/>
                         <outlet property="slider" destination="ajk-gL-cyX" id="j9q-EA-9oa"/>
                         <outlet property="youtube" destination="oaw-qV-fYe" id="K2V-Fn-8a6"/>
                     </connections>

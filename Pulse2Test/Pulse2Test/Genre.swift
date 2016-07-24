@@ -11,7 +11,7 @@ import UIKit
 class GenreViewController : UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet weak var genre: UIPickerView!
-    @IBOutlet weak var label: UILabel!
+ 
     var pickerData: [String] = [String]()
     var currentGenre = "0"
     override func viewDidLoad() {

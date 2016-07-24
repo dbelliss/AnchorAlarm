@@ -16,6 +16,7 @@ var MainTableViewControllerShared: MainTableViewController!
 
 class MainTableViewController: UITableViewController {
     @IBOutlet weak var slider: UISwitch!
+    @IBOutlet weak var seconds: UILabel!
     @IBOutlet weak var youtube: YTPlayerView!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var alarmSlider: UISwitch! //Slider to activate alarm
@@ -84,6 +85,7 @@ class MainTableViewController: UITableViewController {
         
     }//Turn on alarm
     else {
+        self.seconds.text = ""
         self.alarmLabel.text = "Off"
         NSLog(self.alarmLabel.text!)
         NSLog("Alarm disarmed. How alarming.")
@@ -104,6 +106,12 @@ func sendAlarm()
 //    var curTime = NSDate().timeIntervalSince1970
     let delta = alarmTime.timeIntervalSinceNow// NSDate().timeIntervalSinceReferenceDate(
     print(String(format: "delta %f", delta))
+    let  niceTime = round(delta);
+    
+    if( alarmSlider.on )
+    {
+    self.seconds.text = niceTime.description
+    }
 //    print((endTime - curTime))
 //    print(String(format: "%f %f delta %f", endTime, curTime, endTime-curTime))
     if ( delta < 0 && alarmSlider.on )
