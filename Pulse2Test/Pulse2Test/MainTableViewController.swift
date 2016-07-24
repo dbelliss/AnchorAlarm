@@ -21,8 +21,7 @@ class MainTableViewController: UITableViewController {
     @IBOutlet weak var alarmLabel: UILabel!//Label to indicate status of alarm
     
     @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var genre: UIPickerView!
-    @IBOutlet weak var versionLabel: UILabel!
+//@IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var deviceNameLabel: UILabel!
     @IBOutlet weak var productIDLabel: UILabel!
     @IBOutlet weak var moduleIDLabel: UILabel!
@@ -50,6 +49,8 @@ class MainTableViewController: UITableViewController {
 
         MainTableViewControllerShared = self
         
+        webView.mediaPlaybackRequiresUserAction=false;
+        webView.allowsInlineMediaPlayback=true;
         let youtubeURL = "https://www.youtube.com/embed/Rg6GLVUnnpM?rel=0&autoplay=1"
         webView.loadHTMLString("<iframe width=\"560\" height=\"315\" src=\"\(youtubeURL)\" frameborder=\"0\" allowfullscreen></iframe>", baseURL: nil)
         subscribeForNotification()

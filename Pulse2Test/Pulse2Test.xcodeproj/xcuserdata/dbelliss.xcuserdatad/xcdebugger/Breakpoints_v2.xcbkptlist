@@ -10,13 +10,59 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Pulse2Test/MainTableViewController.swift"
-            timestampString = "491008724.231222"
+            timestampString = "491020573.435969"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
             landmarkName = "subscribeForNotification()"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pulse2Test/MainTableViewController.swift"
+            timestampString = "491020750.698001"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "6"
+            endingLineNumber = "6">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "globalinit_33_D0168054A75B86538BC8C0ADB8F4DD1A_func0"
+                  moduleName = "Pulse2Test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dbelliss/Desktop/AnchorAlarm/Pulse2Test/Pulse2Test/MainTableViewController.swift"
+                  timestampString = "491021242.978363"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pulse2Test.LEDPatternNames.unsafeMutableAddressor : Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "Pulse2Test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dbelliss/Desktop/AnchorAlarm/Pulse2Test/Pulse2Test/MainTableViewController.swift"
+                  timestampString = "491021242.978581"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

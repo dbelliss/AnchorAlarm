@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0205F2FD1D441D86007EAC0F /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0205F2FC1D441D86007EAC0F /* Genre.swift */; };
+		021D79B21D445CD1007576C3 /* LEDPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021D79B11D445CD1007576C3 /* LEDPattern.swift */; };
 		497410391C1AB607002FBCFC /* Pulse2SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 497410381C1AB607002FBCFC /* Pulse2SDK.framework */; };
 		769D074A1C1A00C2000DBB24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769D07491C1A00C2000DBB24 /* AppDelegate.swift */; };
 		769D074F1C1A00C2000DBB24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 769D074D1C1A00C2000DBB24 /* Main.storyboard */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		0205F2FC1D441D86007EAC0F /* Genre.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
+		021D79B11D445CD1007576C3 /* LEDPattern.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEDPattern.swift; sourceTree = "<group>"; };
 		497410381C1AB607002FBCFC /* Pulse2SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Pulse2SDK.framework; sourceTree = "<group>"; };
 		769D07461C1A00C2000DBB24 /* Pulse2Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pulse2Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		769D07491C1A00C2000DBB24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				769D07521C1A00C2000DBB24 /* LaunchScreen.storyboard */,
 				769D07551C1A00C2000DBB24 /* Info.plist */,
 				0205F2FC1D441D86007EAC0F /* Genre.swift */,
+				021D79B11D445CD1007576C3 /* LEDPattern.swift */,
 			);
 			path = Pulse2Test;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 				76D04E501C1A75DC005C1005 /* LEDPatternTableViewController.swift in Sources */,
 				769D074A1C1A00C2000DBB24 /* AppDelegate.swift in Sources */,
 				0205F2FD1D441D86007EAC0F /* Genre.swift in Sources */,
+				021D79B21D445CD1007576C3 /* LEDPattern.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
