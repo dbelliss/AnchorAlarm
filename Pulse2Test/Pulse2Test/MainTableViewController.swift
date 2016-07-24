@@ -13,8 +13,9 @@ let LEDPatternNames = [ "Firework", "Traffic", "Star", "Wave", "FireFly", "Rain"
 var g_ledPatternID = HMNPattern.Firework
 
 var MainTableViewControllerShared: MainTableViewController!
-class MainTableViewController: UITableViewController {
 
+class MainTableViewController: UITableViewController {
+    @IBOutlet weak var slider: UISwitch!
     @IBOutlet weak var youtube: YTPlayerView!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var alarmSlider: UISwitch! //Slider to activate alarm
@@ -27,6 +28,7 @@ class MainTableViewController: UITableViewController {
     let timeInterval = NSDate().timeIntervalSince1970
     var currentGenre = 0
     var endTime = NSDate().timeIntervalSince1970
+    var alarmTime = NSDate()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +40,10 @@ class MainTableViewController: UITableViewController {
         MainTableViewControllerShared = self
         subscribeForNotification()
         HMNDeviceGeneral.connectToMasterDevice()
+        
+        HMNLedControl.setLedChar(61, charColor: UIColor.redColor(), backgroundColor: UIColor.redColor(), applyToSlaveDevice: false)
+        HMNLedControl.setLedBrightness(0)
+//        HMNLedControl.setLedPattern(0, withData: nil)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -50,7 +56,7 @@ class MainTableViewController: UITableViewController {
 @IBAction func toggleSlider(sender: AnyObject) {
     if (self.alarmLabel.text == "Off") {
         self.alarmLabel.text = "On" //Turn on
-        endTime = NSDate().timeIntervalSince1970
+        alarmTime = datePicker.date
         NSLog(self.alarmLabel.text!)
     }//Turn on alarm
     else {
@@ -63,13 +69,22 @@ class MainTableViewController: UITableViewController {
         endTime = 0;
         self.presentViewController(alertController, animated: true, completion: nil)
     }//Turn off alarm
+    
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    let currentGenre = appDelegate.genre
+
 }
 
 func sendAlarm()
 {
-    if (NSDate().timeIntervalSince1970 >= endTime && endTime != 0)
+//    var curTime = NSDate().timeIntervalSince1970
+    let delta = alarmTime.timeIntervalSinceNow// NSDate().timeIntervalSinceReferenceDate(
+    print(String(format: "delta %f", delta))
+//    print((endTime - curTime))
+//    print(String(format: "%f %f delta %f", endTime, curTime, endTime-curTime))
+    if ( delta < 0 && alarmSlider.on )
     {
-        endTime = 0;
+       
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let currentGenre = appDelegate.genre
        //["Politics", "Sports", "Technology", "Pop Culture"]
@@ -78,7 +93,7 @@ func sendAlarm()
             youtube.loadWithVideoId("cJ4fHIfkB_k");
             break;
         case 1:
-            youtube.loadWithVideoId("Qefi60FTZz0");
+            youtube.loadWithVideoId("xcYCGHub4q0");
             break;
         case 2:
             youtube.loadWithVideoId("0aUFm2FFJwM")
@@ -96,7 +111,13 @@ func sendAlarm()
             self.youtube.playVideo()
             print("playing video")
              NSLog("Times up")
+
         })
+        self.endTime = 0;
+        self.alarmSlider.setOn(false, animated :true)
+        self.alarmLabel.text = "Off"
+        HMNLedControl.setLedBrightness(255)
+        HMNLedControl.setLedPattern(HMNPattern.Firework, withData: nil)
     }
 }
 

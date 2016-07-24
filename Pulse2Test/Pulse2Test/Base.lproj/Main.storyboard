@@ -253,6 +253,7 @@
                         <outlet property="datePicker" destination="8rP-yc-fYY" id="sQV-zb-YQn"/>
                         <outlet property="ledBrightnessLabel" destination="hx9-gI-aHb" id="3hv-Zs-vNa"/>
                         <outlet property="ledInfoLabel" destination="uyH-DZ-OnC" id="7Yl-ib-vH1"/>
+                        <outlet property="slider" destination="ajk-gL-cyX" id="j9q-EA-9oa"/>
                         <outlet property="youtube" destination="oaw-qV-fYe" id="K2V-Fn-8a6"/>
                     </connections>
                 </tableViewController>
@@ -319,40 +320,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ida-2V-3Rj">
-                                <rect key="frame" x="49" y="100" width="142" height="21"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Current Genre:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQg-38-rCx">
-                                        <rect key="frame" x="0.0" y="0.0" width="114" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="N/A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjF-Z1-fEa">
-                                        <rect key="frame" x="114" y="0.0" width="29" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3SY-LN-5mo">
-                                <rect key="frame" x="140" y="342" width="320" height="216"/>
+                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3SY-LN-5mo">
+                                <rect key="frame" x="72" y="199" width="427" height="444"/>
                             </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="3SY-LN-5mo" firstAttribute="centerY" secondItem="WCk-ci-xXY" secondAttribute="centerY" id="PJJ-BV-mle"/>
-                            <constraint firstItem="3SY-LN-5mo" firstAttribute="centerX" secondItem="WCk-ci-xXY" secondAttribute="centerX" id="RMM-gb-H4T"/>
-                            <constraint firstItem="3SY-LN-5mo" firstAttribute="centerX" secondItem="WCk-ci-xXY" secondAttribute="centerX" id="XIZ-V9-wQw"/>
-                            <constraint firstItem="Ida-2V-3Rj" firstAttribute="centerX" secondItem="WCk-ci-xXY" secondAttribute="centerX" id="jok-Cm-CgK"/>
-                            <constraint firstItem="3SY-LN-5mo" firstAttribute="centerY" secondItem="WCk-ci-xXY" secondAttribute="centerY" id="kjN-2O-YBY"/>
-                            <constraint firstItem="Ida-2V-3Rj" firstAttribute="top" secondItem="WCk-ci-xXY" secondAttribute="topMargin" constant="100" id="oaE-xa-S4S"/>
+                            <constraint firstItem="3SY-LN-5mo" firstAttribute="centerY" secondItem="WCk-ci-xXY" secondAttribute="centerY" constant="-29" id="PJJ-BV-mle"/>
+                            <constraint firstItem="3SY-LN-5mo" firstAttribute="centerX" secondItem="WCk-ci-xXY" secondAttribute="centerX" constant="-14.5" id="RMM-gb-H4T"/>
+                            <constraint firstItem="3SY-LN-5mo" firstAttribute="centerX" secondItem="WCk-ci-xXY" secondAttribute="centerX" constant="-14.5" id="XIZ-V9-wQw"/>
+                            <constraint firstItem="3SY-LN-5mo" firstAttribute="centerY" secondItem="WCk-ci-xXY" secondAttribute="centerY" constant="-29" id="kjN-2O-YBY"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="genre" destination="3SY-LN-5mo" id="h0T-qG-Mua"/>
-                        <outlet property="label" destination="xjF-Z1-fEa" id="EOH-jc-YTA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PdX-ou-eLC" userLabel="First Responder" sceneMemberID="firstResponder"/>
