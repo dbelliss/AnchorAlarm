@@ -15,9 +15,10 @@ var g_ledPatternID = HMNPattern.Firework
 var MainTableViewControllerShared: MainTableViewController!
 class MainTableViewController: UITableViewController {
 
+    @IBOutlet weak var youtube: YTPlayerView!
     
     @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var webView: UIWebView!
+//    @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var alarmSlider: UISwitch! //Slider to activate alarm
     @IBOutlet weak var alarmLabel: UILabel!//Label to indicate status of alarm
 //    @IBOutlet weak var versionLabel: UILabel!
@@ -49,10 +50,21 @@ class MainTableViewController: UITableViewController {
         MainTableViewControllerShared = self
         MainTableViewControllerShared = self
         
-        webView.mediaPlaybackRequiresUserAction=false;
-        webView.allowsInlineMediaPlayback=true;
-        let youtubeURL = "https://www.youtube.com/embed/Rg6GLVUnnpM?rel=0&autoplay=1"
-        webView.loadHTMLString("<iframe width=\"560\" height=\"315\" src=\"\(youtubeURL)\" frameborder=\"0\" allowfullscreen></iframe>", baseURL: nil)
+        youtube.loadWithVideoId("q6yHoSvrTss")
+        
+        // schedule playback after a delay
+        let dispatchTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(5 * Double(NSEC_PER_SEC)))
+        dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+            self.youtube.playVideo()
+            
+            print("hello")
+        })
+        
+        
+//        webView.mediaPlaybackRequiresUserAction=false;
+//        webView.allowsInlineMediaPlayback=true;
+//        let youtubeURL = "https://www.youtube.com/embed/Rg6GLVUnnpM?rel=0&autoplay=1"
+//        webView.loadHTMLString("<iframe width=\"560\" height=\"315\" src=\"\(youtubeURL)\" frameborder=\"0\" allowfullscreen></iframe>", baseURL: nil)
         subscribeForNotification()
         HMNDeviceGeneral.connectToMasterDevice()
     }

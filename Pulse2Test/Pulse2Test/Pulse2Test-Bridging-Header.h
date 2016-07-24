@@ -7,3 +7,5 @@
 //
 
 #import <Pulse2SDK/HMNPulse2API.h>
+
+#import "YTPlayerView.h"

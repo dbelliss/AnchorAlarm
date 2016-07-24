@@ -38,6 +38,7 @@
 		179E8B591D447C12000BDAD3 /* Assets.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Assets.bundle; sourceTree = "<group>"; };
 		179E8B5B1D447C26000BDAD3 /* YTPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTPlayerView.h; sourceTree = "<group>"; };
 		179E8B5C1D447C26000BDAD3 /* YTPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTPlayerView.m; sourceTree = "<group>"; };
+		17E2A9B41D447F5E0079B4EB /* Pulse2Test-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Pulse2Test-Bridging-Header.h"; sourceTree = "<group>"; };
 		497410381C1AB607002FBCFC /* Pulse2SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Pulse2SDK.framework; sourceTree = "<group>"; };
 		769D07461C1A00C2000DBB24 /* Pulse2Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pulse2Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		769D07491C1A00C2000DBB24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +78,7 @@
 		769D073D1C1A00C2000DBB24 = {
 			isa = PBXGroup;
 			children = (
+				17E2A9B41D447F5E0079B4EB /* Pulse2Test-Bridging-Header.h */,
 				497410371C1AAD02002FBCFC /* Frameworks */,
 				769D07481C1A00C2000DBB24 /* Pulse2Test */,
 				769D07471C1A00C2000DBB24 /* Products */,
