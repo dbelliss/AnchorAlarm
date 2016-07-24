@@ -21,7 +21,6 @@ class MainTableViewController: UITableViewController {
     @IBOutlet weak var alarmLabel: UILabel!//Label to indicate status of alarm
     
     @IBOutlet weak var datePicker: UIDatePicker!
-//@IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var deviceNameLabel: UILabel!
     @IBOutlet weak var productIDLabel: UILabel!
     @IBOutlet weak var moduleIDLabel: UILabel!
